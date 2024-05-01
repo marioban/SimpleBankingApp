@@ -113,11 +113,9 @@ class SBAlert: UIViewController {
     
     func navigateToTransactionsViewController() {
         let transactionVC = TransactionsViewController()
-        transactionVC.modalPresentationStyle = .fullScreen
-        if let navigator = navigationController {
-            navigator.pushViewController(transactionVC, animated: true)
-        } else {
-            present(transactionVC, animated: true)
-        }
+        let navController = UINavigationController(rootViewController: transactionVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
     }
+
 }

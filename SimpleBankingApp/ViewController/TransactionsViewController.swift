@@ -15,13 +15,21 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         setupTableView()
         setupSelectAccountButton()
         loadBankData()
+        setupLogoutButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     private func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -29,11 +37,17 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.estimatedRowHeight = 100
         view.addSubview(tableView)
         
+        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(70)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+    }
+    
+    private func setupLogoutButton() {
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(showLogoutConfirmation))
+        navigationItem.rightBarButtonItem = logoutButton
     }
 
     private func setupSelectAccountButton() {
@@ -48,6 +62,33 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             make.width.equalTo(200)
             make.height.equalTo(50)
         }
+    }
+    
+    @objc private func showLogoutConfirmation() {
+        let alertController = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
+
+        let logoutAction = UIAlertAction(title: "Yes", style: .destructive) { [weak self] _ in
+            self?.logoutUser()
+        }
+        let cancelAction = UIAlertAction(title: "Dismiss", style: .cancel)
+
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+    
+    private func logoutUser() {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+              let window = sceneDelegate.windows.first(where: { $0.isKeyWindow }) else {
+            return
+        }
+        
+        let loginViewController = LoginViewController()
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+
+        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = navigationController
+        }, completion: nil)
     }
 
     
@@ -100,7 +141,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             }
             
             cell.textLabel?.text = detailsText
-            cell.textLabel?.numberOfLines = 0 
+            cell.textLabel?.numberOfLines = 0
             cell.textLabel?.font = UIFont.systemFont(ofSize: 14)
         }
         cell.selectionStyle = .none
