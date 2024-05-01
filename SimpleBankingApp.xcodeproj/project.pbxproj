@@ -13,6 +13,11 @@
 		3BF1177629103EBD00D6DF76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BF1177429103EBD00D6DF76 /* LaunchScreen.storyboard */; };
 		3BF117842912D38A00D6DF76 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF117832912D38A00D6DF76 /* UserData.swift */; };
 		AC661456356A73FBC01BEDA9 /* Pods_SimpleBankingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C2564AB00F7C410DFA4F5B /* Pods_SimpleBankingApp.framework */; };
+		C60C07AA2BE2B85400E6C486 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C07A92BE2B85400E6C486 /* TransactionsViewController.swift */; };
+		C60C07AC2BE2C20700E6C486 /* SBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C07AB2BE2C20700E6C486 /* SBButton.swift */; };
+		C60C07AE2BE2C41900E6C486 /* SBAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C07AD2BE2C41900E6C486 /* SBAlert.swift */; };
+		C60C07B02BE2C45800E6C486 /* SBLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C07AF2BE2C45800E6C486 /* SBLabel.swift */; };
+		C60C07B22BE2C50300E6C486 /* SBBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C07B12BE2C50300E6C486 /* SBBodyLabel.swift */; };
 		C61E434E2B924C8D007D8A46 /* Zadatak_1.json in Resources */ = {isa = PBXBuildFile; fileRef = C61E434D2B924C8D007D8A46 /* Zadatak_1.json */; };
 		C6FF04CD2B924EBD00A1A982 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FF04CC2B924EBD00A1A982 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +31,11 @@
 		3BF1177729103EBD00D6DF76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BF117832912D38A00D6DF76 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		6F076B5F428C61A97388D079 /* Pods-SimpleBankingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleBankingApp.debug.xcconfig"; path = "Target Support Files/Pods-SimpleBankingApp/Pods-SimpleBankingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C60C07A92BE2B85400E6C486 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		C60C07AB2BE2C20700E6C486 /* SBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBButton.swift; sourceTree = "<group>"; };
+		C60C07AD2BE2C41900E6C486 /* SBAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBAlert.swift; sourceTree = "<group>"; };
+		C60C07AF2BE2C45800E6C486 /* SBLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBLabel.swift; sourceTree = "<group>"; };
+		C60C07B12BE2C50300E6C486 /* SBBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBodyLabel.swift; sourceTree = "<group>"; };
 		C61E434D2B924C8D007D8A46 /* Zadatak_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Zadatak_1.json; sourceTree = "<group>"; };
 		C6FF04CC2B924EBD00A1A982 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C86B5F9A1687D30FD2043002 /* Pods-SimpleBankingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleBankingApp.release.xcconfig"; path = "Target Support Files/Pods-SimpleBankingApp/Pods-SimpleBankingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,7 +92,6 @@
 				6F076B5F428C61A97388D079 /* Pods-SimpleBankingApp.debug.xcconfig */,
 				C86B5F9A1687D30FD2043002 /* Pods-SimpleBankingApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -97,6 +106,10 @@
 		C6FF04CE2B924EE000A1A982 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C60C07AB2BE2C20700E6C486 /* SBButton.swift */,
+				C60C07AD2BE2C41900E6C486 /* SBAlert.swift */,
+				C60C07AF2BE2C45800E6C486 /* SBLabel.swift */,
+				C60C07B12BE2C50300E6C486 /* SBBodyLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				C6FF04CC2B924EBD00A1A982 /* LoginViewController.swift */,
+				C60C07A92BE2B85400E6C486 /* TransactionsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -242,10 +256,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60C07AC2BE2C20700E6C486 /* SBButton.swift in Sources */,
 				C6FF04CD2B924EBD00A1A982 /* LoginViewController.swift in Sources */,
 				3BF117842912D38A00D6DF76 /* UserData.swift in Sources */,
+				C60C07AE2BE2C41900E6C486 /* SBAlert.swift in Sources */,
 				3BF1176A29103EBB00D6DF76 /* AppDelegate.swift in Sources */,
+				C60C07B22BE2C50300E6C486 /* SBBodyLabel.swift in Sources */,
+				C60C07B02BE2C45800E6C486 /* SBLabel.swift in Sources */,
 				3BF1176C29103EBB00D6DF76 /* SceneDelegate.swift in Sources */,
+				C60C07AA2BE2B85400E6C486 /* TransactionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
