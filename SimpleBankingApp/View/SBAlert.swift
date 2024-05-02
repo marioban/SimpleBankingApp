@@ -103,7 +103,7 @@ class SBAlert: UIViewController {
             return
         }
         
-        if username == "admin" && password == "1234" {
+        if username == "admin" || username == "Admin" && password == "1234" {
             print("Login Successful")
             navigateToTransactionsViewController()
         } else {
